@@ -6,7 +6,7 @@
 ;    gmbusi2c.inf
 ;
 ;Abstract:
-;    INF file for installing the CR50 I2C Driver
+;    INF file for installing the GMBus I2C Driver
 ;
 ;
 ;--*/
@@ -16,7 +16,7 @@ Signature   = "$WINDOWS NT$"
 Class       = System
 ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider    = CoolStar
-DriverVer   = 12/16/2021,1.0.0
+DriverVer   = 6/30/2023,1.0.0
 CatalogFile = gmbusi2c.cat
 PnpLockdown = 1
 
