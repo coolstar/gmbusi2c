@@ -229,6 +229,8 @@ NTSTATUS i2c_xfer(PGMBUSI2C_CONTEXT pDevice,
 		return status;
 	}
 
+	UINT32 transferredLength = 0;
+
 	SPB_TRANSFER_DESCRIPTOR descriptor;
 	for (int i = 0; i < TransferCount; i++) {
 		PMDL mdlChain;
@@ -245,7 +247,8 @@ NTSTATUS i2c_xfer(PGMBUSI2C_CONTEXT pDevice,
 			return status;
 		}
 
-		WdfRequestSetInformation(SpbRequest, descriptor.TransferLength);
+		transferredLength += descriptor.TransferLength;
+		WdfRequestSetInformation(SpbRequest, transferredLength);
 	}
 
 	(pDevice->GMBusI2CUnlockBus)(pDevice->GMBusI2CBusContext);

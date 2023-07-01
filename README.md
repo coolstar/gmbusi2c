@@ -8,8 +8,6 @@ Tested operations:
 * Connect
 * Read
 * Write
-
-Implemented but untested:
 * Sequence
 
 Do note that the Intel GPU driver may access the gmbus at any time. On any other device, try to avoid connecting i2c devices to ports where displays may be attached.
