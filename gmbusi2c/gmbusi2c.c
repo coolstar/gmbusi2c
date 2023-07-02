@@ -166,7 +166,7 @@ NTSTATUS ConnectToArbitrator(
 		return status;
 	}
 
-	DECLARE_CONST_UNICODE_STRING(busDosDeviceName, L"\\DosDevices\\LINK0000");
+	DECLARE_CONST_UNICODE_STRING(busDosDeviceName, L"\\DosDevices\\GMBUSI2C");
 
 	WDF_IO_TARGET_OPEN_PARAMS openParams;
 	WDF_IO_TARGET_OPEN_PARAMS_INIT_OPEN_BY_NAME(
@@ -609,10 +609,12 @@ GetDeviceHID(
 	PGMBUSI2C_CONTEXT pDevice = GetDeviceContext(FxDevice);
 	UINT32 chipId;
 
-	if (strncmp(outputBuffer->Argument[0].Data, "LINK0000", outputBuffer->Argument[0].DataLength) == 0) {
+	if (strncmp(outputBuffer->Argument[0].Data, "LINK0000", outputBuffer->Argument[0].DataLength) == 0 ||
+		strncmp(outputBuffer->Argument[0].Data, "CORE0001", outputBuffer->Argument[0].DataLength) == 0) {
 		pDevice->IsArbitrator = TRUE;
 	}
-	else if (strncmp(outputBuffer->Argument[0].Data, "LINK0001", outputBuffer->Argument[0].DataLength) == 0) {
+	else if (strncmp(outputBuffer->Argument[0].Data, "LINK0001", outputBuffer->Argument[0].DataLength) == 0 ||
+		strncmp(outputBuffer->Argument[0].Data, "CORE0002", outputBuffer->Argument[0].DataLength) == 0) {
 		pDevice->IsArbitrator = FALSE;
 	}
 	else {
@@ -743,7 +745,7 @@ IN PWDFDEVICE_INIT DeviceInit
 		"Arbitrator? %d\n", devContext->IsArbitrator);
 
 	if (devContext->IsArbitrator) { //Arbitrator. Setup protocol
-		DECLARE_CONST_UNICODE_STRING(dosDeviceName, L"\\DosDevices\\LINK0000");
+		DECLARE_CONST_UNICODE_STRING(dosDeviceName, L"\\DosDevices\\GMBUSI2C");
 
 		status = WdfDeviceCreateSymbolicLink(device,
 			&dosDeviceName

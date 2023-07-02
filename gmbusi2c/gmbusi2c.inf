@@ -42,7 +42,9 @@ gmbusi2c.sys  = 1,,
 ; ones on XP and later.
 [Standard.NT$ARCH$.10.0...14393]
 %GmBusI2C.DeviceDescArb%=GmBusI2C_Device, ACPI\LINK0000
+%GmBusI2C.DeviceDescArb%=GmBusI2C_Device, ACPI\CORE0001
 %GmBusI2C.DeviceDescLink%=GmBusI2C_Device, ACPI\LINK0001
+%GmBusI2C.DeviceDescLink%=GmBusI2C_Device, ACPI\CORE0002
 
 [GmBusI2C_Device.NT]
 CopyFiles=Drivers_Dir

@@ -37,7 +37,7 @@ typedef struct _PNP_I2C_SERIAL_BUS_DESCRIPTOR {
 #define DRIVERNAME                 "gmbusi2c.sys: "
 
 #define GMBUSI2C_POOL_TAG            (ULONG) 'GMIC'
-#define GMBUSI2C_HARDWARE_IDS        L"CoolStar\\LINK0000\0\0"
+#define GMBUSI2C_HARDWARE_IDS        L"CoolStar\\GMBUSI2C\0\0"
 #define GMBUSI2C_HARDWARE_IDS_LENGTH sizeof(GMBUSI2CI2C_HARDWARE_IDS)
 
 #define GMBUSMMIO_SPACE 2 * 1024 * 1024
