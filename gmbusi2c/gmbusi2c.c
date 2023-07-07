@@ -610,11 +610,11 @@ GetDeviceHID(
 	UINT32 chipId;
 
 	if (strncmp(outputBuffer->Argument[0].Data, "LINK0000", outputBuffer->Argument[0].DataLength) == 0 ||
-		strncmp(outputBuffer->Argument[0].Data, "CORE0001", outputBuffer->Argument[0].DataLength) == 0) {
+		strncmp(outputBuffer->Argument[0].Data, "BOOT0001", outputBuffer->Argument[0].DataLength) == 0) {
 		pDevice->IsArbitrator = TRUE;
 	}
 	else if (strncmp(outputBuffer->Argument[0].Data, "LINK0001", outputBuffer->Argument[0].DataLength) == 0 ||
-		strncmp(outputBuffer->Argument[0].Data, "CORE0002", outputBuffer->Argument[0].DataLength) == 0) {
+		strncmp(outputBuffer->Argument[0].Data, "BOOT0002", outputBuffer->Argument[0].DataLength) == 0) {
 		pDevice->IsArbitrator = FALSE;
 	}
 	else {
